@@ -26,10 +26,10 @@ public class Card {
 	public static final int NUMBER_QUEEN = 12;
 	//カード番号13を定数化
 	public static final int NUMBER_KING = 13;
-	//スートを表すint型のフィールド宣言
-	private int cardSuit;
-	//カード番号を表すint型のフィールド宣言
-	private int cardNumber;
+	//スートを表すint型のフィールドを初期化して宣言
+	private int cardSuit = 0;
+	//カード番号を表すint型のフィールドを初期化して宣言
+	private int cardNumber = 0;
 
 	/*コンストラクタ名:Card
 	 *概要:フィールドを仮引数で初期化

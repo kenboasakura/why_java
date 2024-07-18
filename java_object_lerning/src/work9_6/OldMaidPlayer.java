@@ -56,7 +56,7 @@ public class OldMaidPlayer extends Player {
 	public void playGame(Player nextPlayer) {
 		//次の人の手札を初期化して宣言
 		Hand nextHand = ((OldMaidPlayer) nextPlayer).showHand();
-		//次の日知の手札を取得
+		//次の人の手札を取得
 		Card pickedCard = nextHand.pickCard(0);
 		//次の人の引いたカードを表示
 		System.out.println(this + ":" + nextPlayer + "さんから" + pickedCard + "を引きました");
@@ -67,17 +67,20 @@ public class OldMaidPlayer extends Player {
 		//同じ数字がある場合
 		if (sameCards != null) {
 			//捨てるカードを表示
-			System.out.println(this + ":");
+			System.out.print(this + ":");
 			//捨てるカードをテーブルに置く
 			gameTable.putCard(sameCards);	
 			//手札がなくなった場合
 			if(myHand.getNumberOfCards() == 0) {
 				//ゲームマスターが勝利を宣言する
 				gameMaster.declareWin(this);
+			//手札がまだある場合
+			}else {
+				//残りの手札を表示
+				System.out.println(this + ":残りの手札は" + myHand + "です。");
 			}
-			//残りの手札を表示
-			System.out.println(this + ":残りの手札は" + myHand + "です。");
-		//手札がまだある場合
+			
+		//同じ数字がない場合
 		}else {
 			//残りの手札を表示
 			System.out.println(this + ":残りの手札は" + myHand + "です。");

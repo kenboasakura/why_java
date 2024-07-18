@@ -26,6 +26,8 @@ public class OldMaidRule implements Rule {
 		final int INDEX_NUMBER_ZERO = 0;
 		//先頭から2番目のインデックスを定数化
 		final int INDEX_NUMBER_ONE = 1;
+		//インデックスを調整するため引かれる整数を定数化
+		final int ADJUSTMENT_INDEX = -1;
 		//手札の枚数を初期化して宣言
 		int numberOfCards = playerHand.getNumberOfCards();
 		//同じ数字のカードを格納する配列を宣言
@@ -49,7 +51,7 @@ public class OldMaidRule implements Rule {
 					//同じ数字のカードを手札から引いて代入
 					sameCards[INDEX_NUMBER_ZERO] = (Card) playerHand.pickCard(i);
 					//同じ数字のカードを手札から引いて代入
-					sameCards[INDEX_NUMBER_ONE] = (Card) playerHand.pickCard(lastIndex-1);
+					sameCards[INDEX_NUMBER_ONE] = (Card) playerHand.pickCard(lastIndex-ADJUSTMENT_INDEX);
 					//if文を抜け出す
 					break;
 				}

@@ -53,15 +53,15 @@ public class Master {
 		//ゲームの開始を宣言
 		System.out.println("\n【ゲームを開始します】");
 		//プレイヤーの人数を取得
-		for (int i = 0; playerList.size() > GAME_LOSER; i++) {
+		for (int indexNumber = 0; playerList.size() > GAME_LOSER; indexNumber++) {
 			//指名する順番を表す変数を宣言
-			int playerIndex = i % playerList.size();
+			int playerIndex = indexNumber % playerList.size();
 			//次に指名する順番を表す変数を宣言
-			int nextplayerIndex = (i + NEXT_ORDER) % playerList.size();
+			int nextPlayerIndex = (indexNumber + NEXT_ORDER) % playerList.size();
 			//指名するプレイヤーの取得
 			Player gamePlayer = (Player) playerList.get(playerIndex);
 			//次のプレイヤーの取得
-			Player nextPlayer = (Player) playerList.get(nextplayerIndex);
+			Player nextPlayer = (Player) playerList.get(nextPlayerIndex);
 			//指名されたプレイヤーを表示
 			System.out.println("\n" + gamePlayer + "さんの番です");
 			//次のプレイヤーを指名
@@ -105,12 +105,14 @@ public class Master {
 	 *作成日:2024/07/03
 	 */
 	public void deregisterPlayer(Player gamePlayer) {
+		//プレイヤーリストの最後に残ったプレイヤーを定数化
+		final int FINAL_PLAYER = 0;
 		//プレイヤーリストから参加者を除外
 		playerList.remove(gamePlayer);
 		//残り一人になった場合
 		if(playerList.size() == GAME_LOSER) {
 			//敗者を取得
-			Player defeatPlayer = (Player) playerList.get(0);
+			Player defeatPlayer = (Player) playerList.get(FINAL_PLAYER);
 			//敗者を表示
 			System.out.println("\n" + defeatPlayer + "さんの負けです");
 		}

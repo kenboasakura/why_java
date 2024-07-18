@@ -1,5 +1,5 @@
 package Trump;
-
+//work9_4パッケージのFantanPlayerクラスをインポート
 import work9_4.FantanPlayer;
 
 /*クラス名:FantanMaster

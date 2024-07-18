@@ -1,8 +1,12 @@
 package Trump;
-
+//ArrayListクラスをインポート
 import java.util.ArrayList;
 
-
+/*クラス名:Hand
+ *概要:手札を管理
+ *作成者:K.Asakura
+ *作成日:2024/07/03
+ */
 public class Hand {
 
 	//手札を保持するためのリスト
@@ -110,8 +114,8 @@ public class Hand {
 		//手札がある場合
 		if (handSize > 0) {
 			//手札のカードの文字列表現を表示
-			for (int i = 0; i < handSize; i++) {
-				Card handCard = (Card) myHand.get(i);
+			for (int indexNumber = 0; indexNumber < handSize; indexNumber++) {
+				Card handCard = (Card) myHand.get(indexNumber);
 				//カード情報を表示
 				cardString.append(handCard);
 				//スペースを出力

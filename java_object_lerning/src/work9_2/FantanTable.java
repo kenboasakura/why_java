@@ -41,15 +41,8 @@ public class FantanTable implements Table {
 	 *作成日:2024/07/03
 	 */
 	public Card[][] getCards() {
-		//テーブルと同じ情報の配列を生成
-		Card[][] tableCard = new Card[Card.SUIT_NUMBER][Card.CARD_NUMBER];
-		//新しい配列にテーブルの情報をコピー
-		for (int suitNumber = 0; suitNumber < Card.SUIT_NUMBER; suitNumber++) {
-			//新しい配列にテーブルの情報をコピー
-			System.arraycopy(trampTable[suitNumber], 0, tableCard[suitNumber], 0, Card.CARD_NUMBER);
-		}
 		//テーブルに置かれたカードを返却
-		return tableCard;
+		return trampTable;
 	}
 
 	/*関数名:toString

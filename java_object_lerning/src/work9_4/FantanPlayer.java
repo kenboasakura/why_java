@@ -1,5 +1,5 @@
 package work9_4;
-
+//TrumpパッケージのCardクラスをインポート
 import Trump.Card;
 import Trump.FantanMaster;
 import Trump.Master;
@@ -70,7 +70,7 @@ public class FantanPlayer extends Player {
 			System.out.println(canPutON[INDEX_NUMBER_ZERO]+ "を置きました");
 			gameTable.putCard(canPutON);
 			//テーブルを表示
-			System.out.println(" "+gameTable);
+			System.out.println(gameTable);
 			//手札がなくなった場合
 			if(myHand.getNumberOfCards() == 0) {
 				//勝ちを宣言しそのプレイヤーを除外

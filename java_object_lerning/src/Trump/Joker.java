@@ -6,6 +6,10 @@ package Trump;
  *作成日:2024/07/03
  */
 public class Joker extends Card{
+	//ジョーカーを表すスートを定数化
+	static final int JOKER_SUIT = 0;
+	//ジョーカーを表す番号を定数化
+	static final int JOKER_NUMBER = 0;
 
 	/*コンストラクタ名:Joker
 	 *概要:ジョーカーをスーパークラスのコンストラクタで初期化
@@ -14,8 +18,10 @@ public class Joker extends Card{
 	 *作成日:2024/07/03
 	 */
 	public Joker() {
+		
+		
 		//スーパークラスのコンストラクタを呼び出す
-		super(0, 0);
+		super(JOKER_SUIT, JOKER_NUMBER);
 	}
 	
 	/*関数名:setNumber
@@ -49,7 +55,7 @@ public class Joker extends Card{
 	 *作成者:K.Asakura
 	 *作成日:2024/07/03
 	 */
-	public String toStrinng() {
+	public String toString() {
 		//ジョーカーの文字列表現を返却
 		return "JK";
 	}

@@ -1,8 +1,11 @@
 package work9_3;
-
+//TrumpパッケージのCardクラスをインポート
 import Trump.Card;
+//TrumpパッケージのHandクラスをインポート
 import Trump.Hand;
+//TrumpパッケージのRuleクラスをインポート
 import Trump.Rule;
+//TrumpパッケージのTableクラスをインポート
 import Trump.Table;
 
 /*クラス名:FantanRule

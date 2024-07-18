@@ -1,10 +1,15 @@
 package work9_4;
 //TrumpパッケージのCardクラスをインポート
 import Trump.Card;
+//TrumpパッケージのFantanMasterクラスをインポート
 import Trump.FantanMaster;
+//TrumpパッケージのMasterクラスをインポート
 import Trump.Master;
+//TrumpパッケージのPlayerクラスをインポート
 import Trump.Player;
+//TrumpパッケージのRuleクラスをインポート
 import Trump.Rule;
+//TrumpパッケージのTableクラスをインポート
 import Trump.Table;
 
 /*クラス名:FantanPlayer

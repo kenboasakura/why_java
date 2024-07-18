@@ -2,6 +2,7 @@ package work9_2;
 
 //TrumpパッケージのCardクラスをインポート
 import Trump.Card;
+//TrumpパッケージのTableクラスをインポート
 import Trump.Table;
 
 /*クラス名:fantanTable

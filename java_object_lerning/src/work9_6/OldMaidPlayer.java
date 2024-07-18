@@ -1,10 +1,15 @@
 package work9_6;
 //TrumpパッケージのCardクラスをインポート
 import Trump.Card;
+//TrumpパッケージのHandクラスをインポート
 import Trump.Hand;
+//TrumpパッケージのMasterクラスをインポート
 import Trump.Master;
+//TrumpパッケージのPlayerクラスをインポート
 import Trump.Player;
+//TrumpパッケージのRuleクラスをインポート
 import Trump.Rule;
+//TrumpパッケージのTableクラスをインポート
 import Trump.Table;
 
 /*クラス名:OldMaidPlayer

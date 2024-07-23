@@ -54,7 +54,7 @@ public class OldMaidRule implements Rule {
 					//同じ数字のカードを手札から引いて代入
 					sameCards[INDEX_NUMBER_ZERO] = (Card) playerHand.pickCard(i);
 					//同じ数字のカードを手札から引いて代入
-					sameCards[INDEX_NUMBER_ONE] = (Card) playerHand.pickCard(lastIndex-ADJUSTMENT_INDEX);
+					sameCards[INDEX_NUMBER_ONE] = (Card) playerHand.pickCard(lastIndex + ADJUSTMENT_INDEX);
 					//if文を抜け出す
 					break;
 				}

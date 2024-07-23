@@ -114,8 +114,9 @@ public class Hand {
 		//手札がある場合
 		if (handSize > 0) {
 			//手札のカードの文字列表現を表示
-			for (int indexNumber = 0; indexNumber < handSize; indexNumber++) {
-				Card handCard = (Card) myHand.get(indexNumber);
+			for (int i = 0; i < handSize; i++) {
+				//自分のカードを取得
+				Card handCard = (Card) myHand.get(i);
 				//カード情報を表示
 				cardString.append(handCard);
 				//スペースを出力

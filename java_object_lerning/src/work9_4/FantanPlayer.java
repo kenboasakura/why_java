@@ -73,6 +73,7 @@ public class FantanPlayer extends Player {
 		if (canPutON != null) {
 			//置いたカードを表示
 			System.out.println(canPutON[INDEX_NUMBER_ZERO]+ "を置きました");
+			//テーブルにカードを置く
 			gameTable.putCard(canPutON);
 			//テーブルを表示
 			System.out.println(gameTable);

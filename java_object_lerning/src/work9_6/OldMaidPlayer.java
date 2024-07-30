@@ -39,14 +39,14 @@ public class OldMaidPlayer extends Player {
 	 *作成日:2024/07/03
 	 */
 	public void receiveCard(Card playerCard) {
-		//カードを配る
-		super.receiveCard(playerCard);
+		//カードを受け取る
+		myHand.addCard(playerCard);
 		//同じ数字のカードを格納する配列を生成
 		Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
 		//ゲーム開始前に同じ数字のカードが合った場合
 		if (sameCards != null) {
 			//ペアになっているカードを表示
-			System.out.println(this + ":");
+			System.out.print(this + ":");
 			//同じ数字のカードを捨てる
 			gameTable.putCard(sameCards);
 		}
@@ -61,48 +61,31 @@ public class OldMaidPlayer extends Player {
 	 */
 	public void playGame(Player nextPlayer) {
 		//敗者を定数化
-		final int GAME_LOSER = 1;
-		//プレイ回数を定数化
-		final int PLAY_COUNT = 1;
-		//ばば抜きを実行
-		for (int i = 0; i < PLAY_COUNT; i++) {
-			//次の人の手札を初期化して宣言
-			Hand nextHand = ((OldMaidPlayer) nextPlayer).showHand();
-			//残り一人になった場合
-			if(gameMaster.getNumberOfPlayer() == GAME_LOSER) {
-				//ループを抜け出る
-				break;
-			}
-			//次の人の手札を取得
-			Card pickedCard = nextHand.pickCard(0);
-			//次の人の引いたカードを表示
-			System.out.println(this + ":" + nextPlayer + "さんから" + pickedCard + "を引きました");
-			//引いたカードを加える
-			myHand.addCard(pickedCard);
-			//同じ数字のカードを格納する配列を生成
-			Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
-			//同じ数字がある場合
-			if (sameCards != null) {
-				//捨てるカードを表示
-				System.out.print(this + ":");
-				//捨てるカードをテーブルに置く
-				gameTable.putCard(sameCards);
-				//手札がなくなった場合
-				if (myHand.getNumberOfCards() == 0) {
-					//ゲームマスターが勝利を宣言する
-					gameMaster.declareWin(this);
-					//手札がまだある場合
-				} else {
-					//残りの手札を表示
-					System.out.println(this + ":残りの手札は" + myHand + "です。");
-				}
-
-				//同じ数字がない場合
-			} else {
-				//残りの手札を表示
-				System.out.println(this + ":残りの手札は" + myHand + "です。");
-			}
+		final int GAME_LOSER = 1; 
+		//次の人の手札を初期化して宣言
+		Hand nextHand = ((OldMaidPlayer) nextPlayer).showHand();
+		//次の人の手札を取得
+		Card pickedCard = nextHand.pickCard(0);
+		//次の人の引いたカードを表示
+		System.out.println(this + ":" + nextPlayer + "さんから" + pickedCard + "を引きました");
+		//引いたカードを加える
+		this.receiveCard(pickedCard);
+		//カードを引かれる人が残り手札1枚の場合
+		if (nextHand.getNumberOfCards() == 0) {
+			//ゲームマスターが勝利を宣言する
+			gameMaster.declareWin(nextPlayer);
 		}
+		//手札がなくなった場合
+		if (myHand.getNumberOfCards() == 0) {
+			//ゲームマスターが勝利を宣言する
+			gameMaster.declareWin(this);
+
+			//手札がまだある場合
+		} else if (myHand.getNumberOfCards() != 0 && gameMaster.getNumberOfPlayer() != GAME_LOSER) {
+			//残りの手札を表示
+			System.out.println(this + ":残りの手札は" + myHand + "です。");
+		}
+
 	}
 
 	/*関数名:showHand
@@ -113,13 +96,7 @@ public class OldMaidPlayer extends Player {
 	 *作成日:2024/07/03
 	 */
 	public Hand showHand() {
-		//残り1枚を定数化
-		final int ONLY_ONE = 1;
-		//残り1枚の場合
-		if (myHand.getNumberOfCards() == ONLY_ONE) {
-			//ゲームマスターが勝利を宣言する
-			gameMaster.declareWin(this);
-		} //カードをシャッフルする
+		//カードをシャッフルする
 		myHand.shuffleCard();
 		//自分の手札を返却
 		return myHand;

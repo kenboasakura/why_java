@@ -1,8 +1,6 @@
 package work9_6;
 //TrumpパッケージのCardクラスをインポート
 import Trump.Card;
-//TrumpパッケージのFantanMasterクラスをインポート
-import Trump.FantanMaster;
 //TrumpパッケージのHandクラスをインポート
 import Trump.Hand;
 //TrumpパッケージのJokerクラスをインポート
@@ -32,7 +30,7 @@ public class OldMaid {
 	 */
 	public static void main(String[] args) {
 		//進行役のインスタンスを生成
-		Master gameMaster = new FantanMaster();
+		Master gameMaster = new Master();
 		//ばば抜きのテーブルのインスタンスを生成
 		Table gameTable = new OldMaidTable();
 		//ばば抜きのルールのインスタンスを生成

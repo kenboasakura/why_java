@@ -91,15 +91,4 @@ public class Player {
 		return winCount;
 	}
 
-	/*関数名:getName
-	 *概要:プレイヤーの名前を返却
-	 *引数:名前(String)
-	 *戻り値:なし
-	 *作成者:K.Asakura
-	 *作成日:2024/06/28
-	 */
-	public String getName() {
-		//名前を返却
-		return playerName;
-	}
 }

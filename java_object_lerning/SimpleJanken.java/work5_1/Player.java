@@ -49,7 +49,7 @@ public class Player implements Tactics {
 	 */
 	public int showHand() {
 		//プレイヤーの手を格納する変数に戦略インタフェースを用いて代入
-		int playerHand = readTactics();
+		int playerHand = handTactics.readTactics();
 		//プレイヤーの手を返却
 		return playerHand;
 	}
@@ -114,7 +114,7 @@ public class Player implements Tactics {
 	 */
 	public int readTactics() {
 		//グーを返却
-		return Player.HAND_STONE;
+		return HAND_STONE;
 	}
 
 

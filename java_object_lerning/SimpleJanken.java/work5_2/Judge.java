@@ -11,12 +11,12 @@ public class Judge {
 
 	/*関数名:startJanken
 	 *概要:3回勝負のじゃんけんを行う
-	 *引数:2人のプレイヤー(CicleTacticsクラス)
+	 *引数:2人のプレイヤー(Playerクラス)
 	 *戻り値:なし
 	 *作成者:K.Asakura
 	 *作成日:2024/06/28
 	 */
-	public void startJanken(CicleTactics firstCicleTactics, CicleTactics secondCicleTactics) {
+	public void startJanken(Player firstPlayer, Player secondPlayer) {
 		//試合回数表示する数を調整するために足される整数を定数化
 		final int ADJUSTMENT_VALUE = 1;
 		//じゃんけんの開始を宣言
@@ -28,7 +28,7 @@ public class Judge {
 			//声かけを表示
 			System.out.println("ジャンケン・ポン\n");
 			//どちらが勝ちかを判定
-			CicleTactics winnerCicleTactics = judgeJanken(firstCicleTactics, secondCicleTactics);
+			Player winnerCicleTactics = judgeJanken(firstPlayer, secondPlayer);
 			//勝者がいる場合
 			if (winnerCicleTactics != null) {
 				//勝利者を表示
@@ -44,9 +44,9 @@ public class Judge {
 		//ジャンケンの終了を宣言する
 		System.out.println("【ジャンケンを終了】\n");
 		//最終的な勝者を選定
-		CicleTactics finalWinner = judgeFinalWinner(firstCicleTactics, secondCicleTactics);
+		Player finalWinner = judgeFinalWinner(firstPlayer, secondPlayer);
 		//勝利数を表示
-		System.out.print(firstCicleTactics.getWinCount() + "対" + secondCicleTactics.getWinCount() + "で");
+		System.out.print(firstPlayer.getWinCount() + "対" + secondPlayer.getWinCount() + "で");
 		//勝者がいる場合
 		if (finalWinner != null) {
 			//勝者を表示
@@ -60,22 +60,22 @@ public class Judge {
 	
 	/*関数名:judgeJanken
 	 *概要:ジャンケンの勝ち負けを判定して勝者を返却
-	 *引数:2人のプレイヤー(CicleTacticsクラス)
-	 *戻り値:勝者(CicleTacticsクラス)
+	 *引数:2人のプレイヤー(Playerクラス)
+	 *戻り値:勝者(Playerクラス)
 	 *作成者:K.Asakura
 	 *作成日:2024/06/28
 	 */
-	private CicleTactics judgeJanken(CicleTactics firstCicleTactics, CicleTactics secondCicleTactics) {
+	private Player judgeJanken(Player firstPlayer, Player yamada) {
 		//勝利者を規定値で初期化し宣言
-		CicleTactics winnerCicleTactics = null;
+		Player winnerCicleTactics = null;
 		//プレイヤー1の手にメソッドを用いて代入
-		int firstCicleTacticsHand = firstCicleTactics.showHand();
+		int firstCicleTacticsHand = firstPlayer.showHand();
 		//プレイヤー1の手を表示
 		printHand(firstCicleTacticsHand);
 		//VS.を表示
 		System.out.println(" VS.");
 		//プレイヤー2の手にメソッドを用いて代入
-		int secondCicleTacticsHand = secondCicleTactics.showHand();
+		int secondCicleTacticsHand = yamada.showHand();
 		//プレイヤー2の手を表示
 		printHand(secondCicleTacticsHand);
 		//プレイヤー1の勝ちの場合
@@ -83,13 +83,13 @@ public class Judge {
 				firstCicleTacticsHand == CicleTactics.HAND_SCISSORS && secondCicleTacticsHand == CicleTactics.HAND_PAPER ||
 				firstCicleTacticsHand == CicleTactics.HAND_PAPER && secondCicleTacticsHand == CicleTactics.HAND_STONE) {
 			//勝利者にプレイヤー1を代入
-			winnerCicleTactics = firstCicleTactics;
+			winnerCicleTactics = firstPlayer;
 			//プレイヤー2の勝ちの場合
 		} else if (firstCicleTacticsHand == CicleTactics.HAND_STONE && secondCicleTacticsHand == CicleTactics.HAND_PAPER ||
 				firstCicleTacticsHand == CicleTactics.HAND_SCISSORS && secondCicleTacticsHand == CicleTactics.HAND_STONE ||
 				firstCicleTacticsHand == CicleTactics.HAND_PAPER && secondCicleTacticsHand == CicleTactics.HAND_SCISSORS) {
 			//勝利者にプレイヤー2を代入
-			winnerCicleTactics = secondCicleTactics;
+			winnerCicleTactics = yamada;
 		}
 		//勝利者を返却
 		return winnerCicleTactics;
@@ -97,26 +97,26 @@ public class Judge {
 
 	/*関数名:judgeFinalWinner
 	 *概要:最終的なジャンケンの勝者を判定し勝者を返却
-	 *引数:2人のプレイヤー(CicleTacticsクラス)
-	 *戻り値:勝者(CicleTacticsクラス)
+	 *引数:2人のプレイヤー(Playerクラス)
+	 *戻り値:勝者(Playerクラス)
 	 *作成者:K.Asakura
 	 *作成日:2024/06/28
 	 */
-	private CicleTactics judgeFinalWinner(CicleTactics firstCicleTactics, CicleTactics secondCicleTactics) {
+	private Player judgeFinalWinner(Player firstPlayer, Player secondPlayer) {
 		//勝利者を規定値で初期化し宣言
-		CicleTactics winnerCicleTactics = null;
+		Player winnerCicleTactics = null;
 		//プレイヤー1の勝利数をメソッドを用いて代入
-		int firstCicleTacticsWinCount = firstCicleTactics.getWinCount();
+		int firstCicleTacticsWinCount = firstPlayer.getWinCount();
 		//プレイヤー2の勝利数をメソッドを用いて代入
-		int secondCicleTacticsrWinCount = secondCicleTactics.getWinCount();
+		int secondCicleTacticsrWinCount = secondPlayer.getWinCount();
 		//プレイヤー1の勝利数が多い場合
 		if (firstCicleTacticsWinCount > secondCicleTacticsrWinCount) {
 			//勝利者にプレイヤー1を代入
-			winnerCicleTactics = firstCicleTactics;
+			winnerCicleTactics = firstPlayer;
 			//プレイヤー2の勝利数が多い場合
 		} else if (secondCicleTacticsrWinCount > firstCicleTacticsWinCount) {
 			//勝利者にプレイヤー2を代入
-			winnerCicleTactics = secondCicleTactics;
+			winnerCicleTactics = secondPlayer;
 		}
 		//勝利者を返却
 		return winnerCicleTactics;

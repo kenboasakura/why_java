@@ -1,5 +1,5 @@
 package work4_1;
-
+//work3_3パッケージのJudgeクラスをインポート
 import work3_3.Judge;
 
 /*クラス名:ObjectJanken

@@ -1,6 +1,6 @@
 package work3_3;
 
-//Playerクラスをインポート
+//work3_2パッケージのPlayerクラスをインポート
 import work3_2.Player;
 
 /*クラス名:Judge
@@ -25,8 +25,8 @@ public class Judge {
 		//じゃんけんの開始を宣言
 		System.out.println("【ジャンケン開始】\n");
 		//ジャンケンを3回行う
-		for (int i = 0; i < MATCH_COUNT; i++) { //回戦目を表示
-			//じゃんけんの開始を宣言
+		for (int i = 0; i < MATCH_COUNT; i++) { 
+			//回戦目を表示
 			System.out.println("【" + (i + ADJUSTMENT_VALUE) + "回戦目】\n");
 			//声かけを表示
 			System.out.println("ジャンケン・ポン\n");

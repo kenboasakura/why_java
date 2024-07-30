@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Hand {
 
 	//手札を保持するためのリスト
-	private ArrayList myHand = new ArrayList();
+	private ArrayList<Card> myHand = new ArrayList<Card>();
 
 	/*関数名:addCard
 	 *概要:カードを加える

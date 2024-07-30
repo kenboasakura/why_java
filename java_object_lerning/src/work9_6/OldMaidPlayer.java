@@ -1,4 +1,5 @@
 package work9_6;
+
 //TrumpパッケージのCardクラスをインポート
 import Trump.Card;
 //TrumpパッケージのHandクラスをインポート
@@ -59,36 +60,48 @@ public class OldMaidPlayer extends Player {
 	 *作成日:2024/07/03
 	 */
 	public void playGame(Player nextPlayer) {
-		//次の人の手札を初期化して宣言
-		Hand nextHand = ((OldMaidPlayer) nextPlayer).showHand();
-		//次の人の手札を取得
-		Card pickedCard = nextHand.pickCard(0);
-		//次の人の引いたカードを表示
-		System.out.println(this + ":" + nextPlayer + "さんから" + pickedCard + "を引きました");
-		//引いたカードを加える
-		myHand.addCard(pickedCard);
-		//同じ数字のカードを格納する配列を生成
-		Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
-		//同じ数字がある場合
-		if (sameCards != null) {
-			//捨てるカードを表示
-			System.out.print(this + ":");
-			//捨てるカードをテーブルに置く
-			gameTable.putCard(sameCards);	
-			//手札がなくなった場合
-			if(myHand.getNumberOfCards() == 0) {
-				//ゲームマスターが勝利を宣言する
-				gameMaster.declareWin(this);
-			//手札がまだある場合
-			}else {
+		//敗者を定数化
+		final int GAME_LOSER = 1;
+		//プレイ回数を定数化
+		final int PLAY_COUNT = 1;
+		//ばば抜きを実行
+		for (int i = 0; i < PLAY_COUNT; i++) {
+			//次の人の手札を初期化して宣言
+			Hand nextHand = ((OldMaidPlayer) nextPlayer).showHand();
+			//残り一人になった場合
+			if(gameMaster.getNumberOfPlayer() == GAME_LOSER) {
+				//ループを抜け出る
+				break;
+			}
+			//次の人の手札を取得
+			Card pickedCard = nextHand.pickCard(0);
+			//次の人の引いたカードを表示
+			System.out.println(this + ":" + nextPlayer + "さんから" + pickedCard + "を引きました");
+			//引いたカードを加える
+			myHand.addCard(pickedCard);
+			//同じ数字のカードを格納する配列を生成
+			Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
+			//同じ数字がある場合
+			if (sameCards != null) {
+				//捨てるカードを表示
+				System.out.print(this + ":");
+				//捨てるカードをテーブルに置く
+				gameTable.putCard(sameCards);
+				//手札がなくなった場合
+				if (myHand.getNumberOfCards() == 0) {
+					//ゲームマスターが勝利を宣言する
+					gameMaster.declareWin(this);
+					//手札がまだある場合
+				} else {
+					//残りの手札を表示
+					System.out.println(this + ":残りの手札は" + myHand + "です。");
+				}
+
+				//同じ数字がない場合
+			} else {
 				//残りの手札を表示
 				System.out.println(this + ":残りの手札は" + myHand + "です。");
 			}
-			
-		//同じ数字がない場合
-		}else {
-			//残りの手札を表示
-			System.out.println(this + ":残りの手札は" + myHand + "です。");
 		}
 	}
 

@@ -8,11 +8,11 @@ package work3_2;
 public class Player {
 
 	//プレイヤーの手グーを定数化
-	public static final int HAND_STONE = 0;
+	public static final int HAND_STONE = 1;
 	//プレイヤーの手チョキを定数化
-	public static final int HAND_SCISSORS = 1;
+	public static final int HAND_SCISSORS = 2;
 	//プレイヤーの手パーを定数化
-	public static final int HAND_PAPER = 2;
+	public static final int HAND_PAPER = 3;
 	//じゃんけんの手の種類を定数化
 	public static final int HAND_RANGE = 3;
 	//ランダムな小数がグーの場合の範囲を定数化

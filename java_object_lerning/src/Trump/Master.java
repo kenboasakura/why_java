@@ -11,7 +11,7 @@ public class Master {
 	//敗者を定数化
 	private static final int GAME_LOSER = 1; 
 	//プレイヤーのリストを管理するフィールドを宣言
-	private ArrayList playerList = new ArrayList();
+	private ArrayList<Player> playerList = new ArrayList<Player>();
 
 	/*関数名:prepareGame
 	 *概要:ゲームの準備をする
@@ -117,5 +117,17 @@ public class Master {
 			System.out.println("\n" + defeatPlayer + "さんの負けです");
 		}
 	}
-
+	
+	/*関数名:getNumberOfPlayer
+	 *概要:プレイヤーの人数を取得
+	 *引数:なし
+	 *戻り値:プレイヤーの人数(int)
+	 *作成者:K.Asakura
+	 *作成日:2024/07/03
+	 */
+	public int getNumberOfPlayer() {
+		//プレイヤーの人数を返却
+		return playerList.size();
+	}
+	
 }

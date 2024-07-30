@@ -18,10 +18,18 @@ public class ObjectJanken {
           //審判(斎藤さん)のインスタンスを生成
           Judge saito = new Judge();
           //プレイヤー1(村田さん)のインスタンスを生成
-          CicleTactics murata = new CicleTactics("村田さん");
-          //プレイヤー2(山田さん)のインスタンスを生成
-          CicleTactics yamada = new CicleTactics("山田さん");
-          //村田さんと山田さんでジャンケンを行う
+          Player murata = new Player("村田さん");
+          //村田さんに渡す戦略クラスを生成する
+          Tactics murataTactics = new CicleTactics();
+          //村田さんに戦略クラスを渡す
+          murata.setTactics(murataTactics);
+        //プレイヤー2(山田さん)のインスタンスを生成
+          Player yamada = new Player("村田さん");
+          //山田さんに渡す戦略クラスを生成する
+          Tactics yamadaTactics = new CicleTactics();
+          //山田さんに戦略クラスを渡す
+          yamada.setTactics(yamadaTactics);
+          //二人でジャンケンを開始
           saito.startJanken(murata, yamada);
 
          

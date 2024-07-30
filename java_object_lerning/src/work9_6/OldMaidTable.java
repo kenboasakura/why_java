@@ -14,7 +14,7 @@ import Trump.Table;
  */
 public class OldMaidTable implements Table {
 	//テーブルに置かれたカードを格納する配列を生成
-	private ArrayList disposedCards = new ArrayList();
+	private ArrayList<Card> disposedCards = new ArrayList<Card>();
 	
 	/*関数名:putCard
 	 *概要:テーブルにカードを置く
